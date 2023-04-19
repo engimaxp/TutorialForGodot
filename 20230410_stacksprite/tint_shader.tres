@@ -1,0 +1,11 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+uniform vec4 tint_color:hint_color = vec4(1.0);
+
+void fragment(){
+	vec4 col = texture(TEXTURE,UV);
+	col.rgb = mix(col.rgb,tint_color.rgb,step(1.0,col.r)*step(1.0,col.b)*step(1.0,col.g));
+	COLOR = col;
+}"
